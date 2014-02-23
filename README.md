@@ -4,7 +4,7 @@ Generate your financial statement automatically from your account transactions. 
 
 ## Usage
 
-Put your financial data to _data/meta.json_, _data/accounts.json_ and _data/transactions.json_. Then start the server:
+Put your financial data to _src/database.json_. Then start the server:
 
     > cd src/
     > make runserver
