@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <title></title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Icons -->
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+        
+        <!-- Bootstrap -->
+        <link href="thirdparty/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h1 id="title"></h1>
+            
+            <div id="daybook_meta"></div>
+            <div id="daybook"></div>
+        </div>
+        
+        
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="thirdparty/bootstrap/js/bootstrap.min.js"></script>
+        <script src="thirdparty/underscore/js/underscore-1.4.4.js"></script>
+        
+        <script src="js/lib.js"></script>
+        <script src="js/daybook.js"></script>
+        
+        <script type="text/template" class="daybook_meta_template">
+            <dl>
+                <dt>Company</dt>
+                <dd><%= company_name %></dd>
+                
+                <dt>Financial Year</dt>
+                <dd><%= financial_year.start %> .. <%= financial_year.stop %></dd>
+                
+                <dt>Currency</dt>
+                <dd><%= currency %></dd>
+                
+                <dt>Date Format</dt>
+                <dd><a href="<%= date_format.source %>"><%= date_format.title %></a></dd>
+            </dl>
+        </script>
+        
+        <script type="text/template" class="transaction_template">
+            <div class="transaction well">
+            
+                <dl>
+                    <dt>Date</dt>
+                    <dd><%= date %></dd>
+                    
+                    <dt>Description</dt>
+                    <dd><%= description %></dd>
+                    
+                    <dt>Vouchers</dt>
+                    <dd>
+                        <% print(voucher.join(', ')) %>
+                    </dd>
+                </dl>
+            
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Account</th>
+                            <th>Debit</th>
+                            <th>Credit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= debit_account_num %> <%= debit_account_name %></td>
+                            <td><%= debit_amount %></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><%= credit_account_num %> <%= credit_account_name %></td>
+                            <td></td>
+                            <td><%= credit_amount %></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>&Sigma; = <%= debit_sum %></td>
+                            <td>&Sigma; = <%= credit_sum %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+            </div>
+            
+        </script>
+    </body>
+</html>

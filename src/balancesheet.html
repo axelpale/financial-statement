@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <title></title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Icons -->
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+        
+        <!-- Bootstrap -->
+        <link href="thirdparty/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h1 id="title"></h1>
+            
+            <div id="balancesheet_meta"></div>
+            <div id="balancesheet"></div>
+        </div>
+        
+        
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="thirdparty/bootstrap/js/bootstrap.min.js"></script>
+        <script src="thirdparty/underscore/js/underscore-1.4.4.js"></script>
+        
+        <script src="js/lib.js"></script>
+        <script src="js/balancesheet.js"></script>
+        
+        <script type="text/template" class="balancesheet_meta_template">
+            <dl>
+                <dt>Company</dt>
+                <dd><%= company_name %></dd>
+                
+                <dt>Financial Year</dt>
+                <dd><%= financial_year.start %> .. <%= financial_year.stop %></dd>
+                
+                <dt>Currency</dt>
+                <dd><%= currency %></dd>
+                
+                <dt>Date Format</dt>
+                <dd><a href="<%= date_format.source %>"><%= date_format.title %></a></dd>
+            </dl>
+        </script>
+        
+        <!-- Assets. FI: omaisuus ja varat; vastaavaa -->
+        <script type="text/template" class="assets_template">
+            <div class="well">
+                <h2>Assets</h2>
+                <h3>Current Assets</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Account</th>
+                            <th>Balance in <%= financial_year.stop %></th>
+                            <th>Balance in <%= previous_financial_year.stop %></th>
+                            <th>Difference</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% current_assets.forEach(function (account) { %>
+                        <tr>
+                            <td><%= account.number %> <%= account.name %></td>
+                            <td><%= account.balance.toFixed(2) %></td>
+                            <td><%= account.previous_balance.toFixed(2) %></td>
+                            <td><%= account.difference.toFixed(2) %></td>
+                        </tr>
+                        <% }) %>
+                        <tr>
+                            <td></td>
+                            <td>&Sigma; = <%= total_current_assets.toFixed(2) %></td>
+                            <td>&Sigma; = <%= previous_total_current_assets.toFixed(2) %></td>
+                            <td><%= (total_current_assets - previous_total_current_assets).toFixed(2) %></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Non-Current Assets</h3>
+                <p>There is no non-current assets for this financial year.</p>
+                
+                <h3>Total Assets</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Balance in <%= financial_year.stop %></th>
+                            <th>Balance in <%= previous_financial_year.stop %></th>
+                            <th>Difference</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= total_current_assets.toFixed(2) %></td>
+                            <td><%= previous_total_current_assets.toFixed(2) %></td>
+                            <td><%= (total_current_assets - previous_total_current_assets).toFixed(2) %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </script>
+        
+        <!-- Owner's Equity. FI: Oma pääoma, sis. yksityissijoitukset ja 
+             tilikauden voitto -->
+        <script type="text/template" class="equity_template">
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,2 @@
+runserver:
+	python -m SimpleHTTPServer

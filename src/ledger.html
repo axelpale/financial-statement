@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <title></title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Icons -->
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+        
+        <!-- Bootstrap -->
+        <link href="thirdparty/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h1 id="title"></h1>
+            
+            <div id="ledger_meta"></div>
+            <div id="ledger"></div>
+        </div>
+        
+        
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="thirdparty/bootstrap/js/bootstrap.min.js"></script>
+        <script src="thirdparty/underscore/js/underscore-1.4.4.js"></script>
+        
+        <script src="js/lib.js"></script>
+        <script src="js/ledger.js"></script>
+        
+        <script type="text/template" class="ledger_meta_template">
+            <dl>
+                <dt>Company</dt>
+                <dd><%= company_name %></dd>
+                
+                <dt>Financial Year</dt>
+                <dd><%= financial_year.start %> .. <%= financial_year.stop %></dd>
+                
+                <dt>Currency</dt>
+                <dd><%= currency %></dd>
+                
+                <dt>Date Format</dt>
+                <dd><a href="<%= date_format.source %>"><%= date_format.title %></a></dd>
+            </dl>
+        </script>
+        
+        <script type="text/template" class="account_template">
+            <div class="account well">
+                <dl>
+                    <dt>Account</dt>
+                    <dd><%= number %> <%= name %></dd>
+                    
+                    <dt>Description</dt>
+                    <dd><%= description %></dd>
+                    
+                    <dt>Initial Balance</dt>
+                    <dd><%= balance_forward %></dd>
+                </dl>
+            
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Vouchers</th>
+                            <th>Description</th>
+                            <th>Debit</th>
+                            <th>Credit</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <% transaction.forEach(function (t) { %>
+                        <tr>
+                            <td><%= t.date %></td>
+                            <td><% print(t.voucher.join(', ')) %></td>
+                            <td><%= t.description %></td>
+                            <td><%
+                                if (parseFloat(t.debit_amount) > 0.0000001) {
+                                    print(t.debit_amount);
+                                }
+                            %></td>
+                            <td><%
+                                if (parseFloat(t.credit_amount) > 0.0000001) {
+                                    print(t.credit_amount);
+                                }
+                            %></td>
+                            <td><%= t.account_balance.toFixed(2) %></td>
+                        </tr>
+                        <% }); %>
+                        
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>&Sigma; = <%= debit_sum.toFixed(2) %></td>
+                            <td>&Sigma; = <%= credit_sum.toFixed(2) %></td>
+                            <td><%= end_balance.toFixed(2) %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+            </div>
+        </script>
+    </body>
+</html>
