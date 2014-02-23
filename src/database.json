@@ -1,3 +1,303 @@
 {
-  "comment": "placeholder"
+    "meta": {
+        "company_name": "Firma Oy",
+        "financial_year": {
+            "start": "2012-01-01",
+            "stop": "2012-12-31"
+        },
+        "previous_financial_year": {
+            "start": "2010-07-07",
+            "stop": "2011-12-31"
+        },
+        "currency": "EUR",
+        "date_format": ["ISO-8601", "http://en.wikipedia.org/wiki/ISO_8601"]
+    },
+    
+    "account": {
+        "1701": {
+            "name": "Myyntisaamiset",
+            "description": "Suoritetut palvelut, joita asiakas ei ole vielä maksanut.",
+            "balance_forward": "0.00"
+        },
+        "1910": {
+            "name": "Pankkitili Lyytikäisen Pankki",
+            "description": "Yrityksen pankkitili.",
+            "balance_forward": "1241.94"
+        },
+        "2365": {
+            "name": "Yksityisnostot rahana",
+            "description": "Tilisiirrot yrityksen pankkitililtä omalle henkilökohtaiselle pankkitilille.",
+            "balance_forward": "0.00"
+        },
+        "2871": {
+            "name": "Ostovelat",
+            "description": "Saadut palvelut, joita yritys ei ole vielä maksanut. Osa yrityksen vierasta pääomaa.",
+            "balance_forward": "-180.00"
+        },
+        "3010": {
+            "name": "Verkkopalvelumyynti",
+            "description": "Suoritetut verkkopalvelupalvelut kuten sivustojen ylläpito, suunnittelu ja toteutus.",
+            "balance_forward": "0.00"
+        },
+        "7701": {
+            "name": "Domain-nimien kulut",
+            "description": "Domainien, kuten firmaoy.comin ostokulut ja vuotuiset rekisteröintikulut.",
+            "balance_forward": "0.00"
+        },
+        "8380": {
+            "name": "Taloushallintopalvelut",
+            "description": "Esimerkiksi ostetut kirjanpitopalvelut.",
+            "balance_forward": "0.00"
+        },
+        "9230": {
+            "name": "Korkotuotot talletuksista",
+            "description": "Esimerkiksi yrityksen pankkitilille maksettava, pankin maksama talletuskorko.",
+            "balance_forward": "0.00"
+        }
+    },
+    
+    "transaction": [
+        {
+            "id": 1,
+            "date": "2012-01-09",
+            "voucher": [37,43],
+            "debit_account": "2871",
+            "credit_account": "1910",
+            "description": "Montosen Kirjanpito Ky. Kirjanpidon perustaminen.",
+            "amount": "180.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 2,
+            "date": "2012-01-13",
+            "voucher": [38],
+            "debit_account": "1701",
+            "credit_account": "3010",
+            "description": "Turakaisen Matkatoimisto Oy. Kotisivuprojekti. Lasku lähetetty.",
+            "amount": "900.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 3,
+            "date": "2012-02-06",
+            "voucher": [44],
+            "debit_account": "1910",
+            "credit_account": "1701",
+            "description": "Turakaisen Matkatoimisto Oy. Kotisivuprojekti. Asiakas maksoi laskun.",
+            "amount": "900.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 4,
+            "date": "2012-01-30",
+            "voucher": [53],
+            "debit_account": "1701",
+            "credit_account": "3010",
+            "description": "Kuljetusliike Vattulainen. Sivuston ylläpito vuodelle 2012. Lasku lähetetty.",
+            "amount": "50.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 5,
+            "date": "2012-02-14",
+            "voucher": [44],
+            "debit_account": "1910",
+            "credit_account": "1701",
+            "description": "Kuljetusliike Vattulainen. Sivuston ylläpito vuodelle 2012. Asiakas maksoi laskun.",
+            "amount": "50.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 6,
+            "description": "Montosen Kirjanpito Ky. Kirjanpito vuodelle 2011.",
+            "date": "2012-03-02",
+            "voucher": [39, 45],
+            "debit_account": "8380",
+            "credit_account": "1910",
+            "amount": "175.50",
+            "unit": "EUR"
+        },
+        {
+            "id": 7,
+            "description": "DomainKauppa.com. Domainin matsoninfisu.com osto.",
+            "date": "2012-03-13",
+            "voucher": [40, 45],
+            "debit_account": "7701",
+            "credit_account": "1910",
+            "amount": "8.43",
+            "unit": "EUR"
+        },
+        {
+            "id": 8,
+            "description": "Montosen Kirjanpito Ky. Tilinpäätös ja veroilmoitus vuodelle 2011.",
+            "date": "2012-05-14",
+            "voucher": [41,46],
+            "debit_account": "8380",
+            "credit_account": "1910",
+            "amount": "192.05",
+            "unit": "EUR"
+        },
+        {
+            "id": 9,
+            "description": "Siirto omalle yksityistilille",
+            "date": "2012-05-25",
+            "voucher": [42,46],
+            "debit_account": "2365",
+            "credit_account": "1910",
+            "amount": "500.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 10,
+            "description": "Yritystilin talletuskorko Lyytikäisen Pankista",
+            "date": "2012-06-05",
+            "voucher": [47],
+            "debit_account": "1910",
+            "credit_account": "9230",
+            "amount": "1.27",
+            "unit": "EUR"
+        },
+        {
+            "id": 11,
+            "description": "Siirto omalle yksityistilille",
+            "date": "2012-06-08",
+            "voucher": [47],
+            "debit_account": "2365",
+            "credit_account": "1910",
+            "amount": "400.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 12,
+            "description": "Siirto omalle yksityistilille",
+            "date": "2012-06-08",
+            "voucher": [47],
+            "debit_account": "2365",
+            "credit_account": "1910",
+            "amount": "400.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 13,
+            "description": "Matsonin Kala Oy. Fisu-projekti. Lasku lähetetty.",
+            "date": "2012-05-24",
+            "voucher": [54],
+            "debit_account": "1701",
+            "credit_account": "3010",
+            "amount": "700.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 14,
+            "description": "Matsonin Kala Oy. Fisu-projekti. Asiakas maksoi laskun.",
+            "date": "2012-07-09",
+            "voucher": [48],
+            "debit_account": "1910",
+            "credit_account": "1701",
+            "amount": "700.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 15,
+            "description": "Siirto omalle yksityistilille",
+            "date": "2012-08-06",
+            "voucher": [49],
+            "debit_account": "2365",
+            "credit_account": "1910",
+            "amount": "400.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 16,
+            "description": "Kallen Rahtaus Ry. Aikataulujen suunnittelu ja taitto. Lasku lähetty.",
+            "date": "2012-08-07",
+            "voucher": [55],
+            "debit_account": "1701",
+            "credit_account": "3010",
+            "amount": "149.20",
+            "unit": "EUR"
+        },
+        {
+            "id": 17,
+            "description": "Kallen Rahtaus Ry. Aikataulujen suunnittelu ja taitto. Asiakas maksoi laskun.",
+            "date": "2012-08-14",
+            "voucher": [49],
+            "debit_account": "1910",
+            "credit_account": "1701",
+            "amount": "149.20",
+            "unit": "EUR"
+        },
+        {
+            "id": 18,
+            "description": "Siirto omalle yksityistilille",
+            "date": "2012-08-21",
+            "voucher": [49],
+            "debit_account": "2365",
+            "credit_account": "1910",
+            "amount": "200.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 19,
+            "description": "DomainKauppa.com. Domainien firmaoy.com ja firmaoy.org uusinta.",
+            "date": "2012-09-21",
+            "voucher": [50, 56],
+            "debit_account": "7701",
+            "credit_account": "1910",
+            "amount": "16.91",
+            "unit": "EUR"
+        },
+        {
+            "id": 20,
+            "description": "Kuljetus Laitinen Oy. Sivuston ylläpito. Lasku lähetetty.",
+            "date": "2012-09-23",
+            "voucher": [57],
+            "debit_account": "1701",
+            "credit_account": "3010",
+            "amount": "375.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 21,
+            "description": "Kuljetus Laitinen Oy. Sivuston ylläpito. Asiakas maksoi laskun.",
+            "date": "2012-10-09",
+            "voucher": [51],
+            "debit_account": "1910",
+            "credit_account": "1701",
+            "amount": "375.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 22,
+            "description": "Siirto omalle yksityistilille",
+            "date": "2012-10-20",
+            "voucher": [51],
+            "debit_account": "2365",
+            "credit_account": "1910",
+            "amount": "400.00",
+            "unit": "EUR"
+        },
+        {
+            "id": 23,
+            "description": "DomainKauppa.com. Domainin firmaoy.me osto.",
+            "date": "2012-10-23",
+            "voucher": [51, 58],
+            "debit_account": "7701",
+            "credit_account": "1910",
+            "amount": "7.03",
+            "unit": "EUR"
+        },
+        {
+            "id": 24,
+            "description": "DomainKauppa.com. Domainin kallenrahtaus.org siirto Domainkauppaan.",
+            "date": "2012-12-10",
+            "voucher": [52, 59],
+            "debit_account": "7701",
+            "credit_account": "1910",
+            "amount": "8.37",
+            "unit": "EUR"
+        }
+        
+        
+    ]
 }
