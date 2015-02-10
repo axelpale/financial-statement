@@ -11,12 +11,12 @@ lib.load_json_database = function (src, callback) {
         }
     });
     
-}
+};
 
 lib.set_title = function (title) {
     document.title = title;
     $("#title").text(title);
-}
+};
 
 lib.get_account_balance = function (db, account_key) {
     var init_balance = parseFloat(db.account[account_key]["balance_forward"]);
@@ -34,4 +34,14 @@ lib.get_account_balance = function (db, account_key) {
     });
     
     return init_balance + debit_sum - credit_sum;
-}
+};
+
+lib.get_gross_revenue = function (db) {
+    // Fi: liikevaihto
+    // http://en.wikipedia.org/wiki/Income_statement
+    return this.get_account_balance(db, 3010);
+};
+
+lib.get_net_income = function (db) {
+    // FI: tilikauden voitto (tappio) yhteensä
+};
